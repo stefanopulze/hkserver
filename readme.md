@@ -8,6 +8,7 @@ Configuration example
 logLevel: debug
 
 homekit:
+  enable: true
   name: 'homeb-dev'
   pin: '00102003'
   storagePath: './db'
@@ -21,11 +22,41 @@ mqtt:
     - "tcp://192.168.1.40:1883"
   username: mqtt
   password: mqtt
+  
+discovery:
+  enable: true
 
 devices:
   - name: "my device"
     ip: 192.168.20.54
     type: shelly1
+```
+
+
+### Devices
+**shelly 1 v3**
+```yaml
+name: "my device"
+ip: 192.168.20.54
+type: shelly1
+```
+
+**shelly 1pm**
+```yaml
+name: "my device"
+ip: 192.168.20.54
+type: shelly1pm
+```
+
+**daitem allarm**
+```yaml
+name: "my device"
+ip: 192.168.20.54
+type: daitem
+options:
+  email: "..."
+  password: "..."
+  masterCode: "..."
 ```
 
 ## Startup
