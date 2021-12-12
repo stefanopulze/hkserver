@@ -1,0 +1,5 @@
+/output
+/db
+.idea
+config.yml
+scripts/build.sh

@@ -1,0 +1,14 @@
+[Unit]
+Description=HomeKit Server
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+Restart=always
+RestartSec=5s
+WorkingDirectory=/opt/hkserver
+ExecStart=/opt/hkserver/hkserver
+
+[Install]
+WantedBy=multi-user.target
