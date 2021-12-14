@@ -3,7 +3,9 @@
 Homekit server to bridge all non homekit device
 
 ## Configuration
+
 Configuration example
+
 ```yaml
 logLevel: debug
 
@@ -22,7 +24,7 @@ mqtt:
     - "tcp://192.168.1.40:1883"
   username: mqtt
   password: mqtt
-  
+
 discovery:
   enable: true
 
@@ -30,11 +32,13 @@ devices:
   - name: "my device"
     ip: 192.168.20.54
     type: shelly1
+    id: 1 # optional but recommended: unique id of device
 ```
 
-
 ### Devices
+
 **shelly 1 v3**
+
 ```yaml
 name: "my device"
 ip: 192.168.20.54
@@ -42,6 +46,7 @@ type: shelly1
 ```
 
 **shelly 1pm**
+
 ```yaml
 name: "my device"
 ip: 192.168.20.54
@@ -49,6 +54,7 @@ type: shelly1pm
 ```
 
 **daitem allarm**
+
 ```yaml
 name: "my device"
 ip: 192.168.20.54
@@ -60,6 +66,7 @@ options:
 ```
 
 ## Startup
+
 ```bash
 # Default
 hkserver 
@@ -67,7 +74,9 @@ hkserver
 # With custom configuratioin path
 hkserver --config <config_path.yml>
 ```
+
 ### Service
+
 To use hkserver as a service
 
 ```bash

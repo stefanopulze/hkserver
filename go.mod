@@ -3,17 +3,18 @@ module hkserver
 go 1.17
 
 require (
+	github.com/brutella/hc v1.2.4
+	github.com/eclipse/paho.mqtt.golang v1.3.5
+	github.com/gofiber/fiber/v2 v2.23.0
 	github.com/spf13/viper v1.9.0
+	github.com/stefanopulze/daitem v0.0.4
 	go.uber.org/zap v1.19.1
 )
 
 require (
 	github.com/andybalholm/brotli v1.0.4 // indirect
 	github.com/brutella/dnssd v1.2.0 // indirect
-	github.com/brutella/hc v1.2.4 // indirect
-	github.com/eclipse/paho.mqtt.golang v1.3.5 // indirect
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
-	github.com/gofiber/fiber/v2 v2.23.0 // indirect
 	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/klauspost/compress v1.13.6 // indirect
@@ -25,7 +26,6 @@ require (
 	github.com/spf13/cast v1.4.1 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	github.com/stefanopulze/daitem v0.0.4 // indirect
 	github.com/subosito/gotenv v1.2.0 // indirect
 	github.com/tadglines/go-pkgs v0.0.0-20140924210655-1f86682992f1 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect

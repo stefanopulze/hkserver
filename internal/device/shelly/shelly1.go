@@ -24,7 +24,9 @@ func (f shelly1Factory) HandleType() string {
 }
 
 func (f shelly1Factory) CreateAccessory(d *configs.Device) (*accessory.Accessory, error) {
-	acc := accessory.NewLightbulb(d.Info())
+	info := d.Info()
+	info.Manufacturer = "Shelly"
+	acc := accessory.NewLightbulb(info)
 
 	acc.Lightbulb.On.OnValueRemoteUpdate(func(b bool) {
 		command := "off"
