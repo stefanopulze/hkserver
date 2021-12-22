@@ -1,5 +1,6 @@
 /output
 /db
+/storage
 .idea
 config.yml
 scripts/build.sh

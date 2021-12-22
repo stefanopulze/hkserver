@@ -59,7 +59,9 @@ func main() {
 	// TODO implement discovery refresh
 	if config.Homekit.Enable {
 		go func() {
-			time.Sleep(5 * time.Second)
+			if config.Discovery.Enable {
+				time.Sleep(5 * time.Second)
+			}
 			homekit.Start(ctx, &wg, log, config.Homekit)
 		}()
 	}
