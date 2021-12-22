@@ -9,6 +9,7 @@ import (
 	"github.com/stefanopulze/daitem"
 	"go.uber.org/zap"
 	"hkserver/configs"
+	"hkserver/internal/di"
 )
 
 type daitemFactory struct {
@@ -44,6 +45,16 @@ func (f daitemFactory) CreateAccessory(d *configs.Device) (*accessory.Accessory,
 	acc := accessory.New(d.Info(), accessory.TypeSecuritySystem)
 	sec := service.NewSecuritySystem()
 	acc.AddService(sec.Service)
+
+	di.Cron.Hours().Do(func() {
+		state := characteristic.SecuritySystemCurrentStateDisarmed
+
+		if active, err := dc.Status(); err == nil && active {
+			state = characteristic.SecuritySystemTargetStateStayArm
+		}
+
+		sec.SecuritySystemCurrentState.SetValue(state)
+	})
 
 	go func() {
 		state := characteristic.SecuritySystemCurrentStateDisarmed

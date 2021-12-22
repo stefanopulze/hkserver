@@ -2,8 +2,10 @@ package main
 
 import (
 	"context"
+	"github.com/go-co-op/gocron"
 	"go.uber.org/zap"
 	"hkserver/configs"
+	"hkserver/internal/di"
 	"hkserver/internal/discover"
 	"hkserver/internal/homekit"
 	"hkserver/internal/http_rest"
@@ -32,6 +34,9 @@ func main() {
 
 	// handle sig terms
 	go handleShutdownSigs(cancel, log)
+
+	// service
+	di.Cron = gocron.NewScheduler(time.UTC)
 
 	// initialize http server
 	http_rest.StartHttpService(ctx, &wg, log, config.Http)
