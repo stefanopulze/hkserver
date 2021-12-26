@@ -74,7 +74,10 @@ func (f daitemFactory) CreateAccessory(d *configs.Device) (*accessory.Accessory,
 
 		alarm := i != characteristic.SecuritySystemTargetStateDisarm
 
-		dc.TurnAlarm(alarm)
+		if state, _ := dc.Status(); state != alarm {
+			dc.TurnAlarm(alarm)
+		}
+
 		sec.SecuritySystemCurrentState.SetValue(i)
 	})
 
